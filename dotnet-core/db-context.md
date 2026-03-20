@@ -32,7 +32,7 @@ public class AppDbContext : DbContext
 }
 ```
 
-## Register DbContext in `Program.cs`
+Register DbContext in `Program.cs`
 ---
 ### SQL Server example
 
