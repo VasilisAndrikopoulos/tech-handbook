@@ -1,5 +1,8 @@
-Create your DbContext
----------------------
+DbContext Guide and Use
+---
+
+
+## Create your DbContext
 
 `DbContext` is the main EF Core class used to access the database.
 
@@ -35,8 +38,8 @@ public class AppDbContext : DbContext
 Use `OnModelCreating` for Fluent API configuration when conventions are not enough.
 
 
-Register DbContext in `Program.cs`
----
+## Register DbContext in `Program.cs`
+
 ### SQL Server example
 
 ```csharp
