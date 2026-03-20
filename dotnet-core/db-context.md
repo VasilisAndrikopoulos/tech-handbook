@@ -32,6 +32,9 @@ public class AppDbContext : DbContext
 }
 ```
 
+Use `OnModelCreating` for Fluent API configuration when conventions are not enough.
+
+
 Register DbContext in `Program.cs`
 ---
 ### SQL Server example
