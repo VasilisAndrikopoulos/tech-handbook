@@ -220,7 +220,7 @@ Reference:
 
 ---
 
-## 9r. Basic CRUD usage
+## 9. Basic CRUD usage
 
 You normally inject `AppDbContext` into services, endpoints, or controllers.
 
@@ -397,70 +397,8 @@ If your `DbContext` lives in a class library, remember that `dotnet ef` may need
 Reference:
 - EF Core CLI design-time behavior: <https://learn.microsoft.com/en-us/ef/core/cli/dotnet>
 
----
----
 
-## Migrations & Db Updates
-
-```bash
-# Add a migration
-dotnet ef migrations add MigrationName
-
-# (create and) Apply migrations to the database
-dotnet ef database update
-
-# Rollback to a previous migration
-dotnet ef database update PreviousMigrationName
-
-# Rollback all migrations (Empty database)
-dotnet ef database update 0
-
-# Remove last(newest) migration
-dotnet ef migrations remove
-
-# Remove all migrations (rollback all & remove)
-dotnet ef database update 0
-dotnet ef migrations remove
-
-```
-
----
----
-## Common commands cheat sheet
-
-```bash
-# Add provider package
-dotnet add package Microsoft.EntityFrameworkCore.SqlServer
-
-# Add design package
-dotnet add package Microsoft.EntityFrameworkCore.Design
-
-# Install EF CLI tool
-dotnet tool install --global dotnet-ef
-
-# Create migration
-dotnet ef migrations add InitialCreate
-
-# Apply migrations
-dotnet ef database update
-
-# Remove last migration (if not applied)
-dotnet ef migrations remove
-
-# List migrations
-dotnet ef migrations list
-
-# Generate SQL script
-dotnet ef migrations script
-```
-
-Reference:
-- EF Core CLI tools: <https://learn.microsoft.com/en-us/ef/core/cli/dotnet>
-- Applying migrations: <https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations/applying>
-
----
-
-## 17. Production recommendations
+## 14. Production recommendations
 
 For production systems:
 
@@ -482,7 +420,7 @@ Reference:
 
 ---
 
-## 18. Minimal end-to-end example
+## 15. Minimal end-to-end example
 
 ### `Product.cs`
 ```csharp
@@ -537,25 +475,41 @@ dotnet ef database update
 ```
 
 ---
+---
 
-## 19. Summary
+## Migrations & Db Update commands
 
-To set up EF Core in .NET 6 to .NET 10:
+```bash
+# Add a migration
+dotnet ef migrations add MigrationName
 
-1. install the correct EF Core provider package
-2. install `Microsoft.EntityFrameworkCore.Design`
-3. install `dotnet-ef`
-4. create entity classes
-5. create a `DbContext`
-6. register the context in DI
-7. add a connection string
-8. create and apply migrations
-9. inject the context where needed and use LINQ/async CRUD operations
+# (create and) Apply migrations to the database
+dotnet ef database update
 
-If you are standardizing a team template, the most practical defaults are:
-- `AddDbContext<AppDbContext>(...)`
-- migrations managed with `dotnet ef`
-- Fluent API for non-trivial mappings
-- `AsNoTracking()` for read-only queries
-- reviewed SQL migration scripts for production
+# Rollback to a previous migration
+dotnet ef database update PreviousMigrationName
+
+# Rollback all migrations (Empty database)
+dotnet ef database update 0
+
+# Remove last(newest) migration
+dotnet ef migrations remove
+
+# Remove all migrations (rollback all & remove)
+dotnet ef database update 0
+dotnet ef migrations remove
+
+# List migrations
+dotnet ef migrations list
+
+# Generate SQL script
+dotnet ef migrations script
+
+```
+
+---
+---
+
+## Db Context
+
 
