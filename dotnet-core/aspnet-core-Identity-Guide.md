@@ -49,6 +49,7 @@ This creates the base Identity setup for you.
 Most Identity-enabled templates already include what you need, but these are the important packages/concepts:
 
 - `Microsoft.AspNetCore.Identity.EntityFrameworkCore`
+- `Microsoft.AspNetCore.Identity.UI`
 - `Microsoft.EntityFrameworkCore.SqlServer`
 - `Microsoft.EntityFrameworkCore.Tools`
 
