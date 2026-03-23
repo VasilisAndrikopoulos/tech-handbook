@@ -148,7 +148,7 @@ References:
 
 ---
 
-## 8. Add your connection string
+## 6. Add your connection string
 
 In `appsettings.json`:
 
@@ -186,7 +186,7 @@ For production, do not hardcode secrets in source control. Prefer:
 
 ---
 
-## 9. Create your first migration
+## 7. Create your first migration
 
 Once your entity classes and `DbContext` are ready, create a migration.
 
@@ -207,7 +207,7 @@ Reference:
 
 ---
 
-## 10. Apply the migration to the database
+## 8. Apply the migration to the database
 
 ```bash
 dotnet ef database update
@@ -220,7 +220,7 @@ Reference:
 
 ---
 
-## 11. Basic CRUD usage
+## 9r. Basic CRUD usage
 
 You normally inject `AppDbContext` into services, endpoints, or controllers.
 
@@ -288,7 +288,7 @@ app.MapDelete("/products/{id:int}", async (AppDbContext db, int id) =>
 
 ---
 
-## 12. Querying tips
+## 10. Querying tips
 
 EF Core uses LINQ for most queries.
 
@@ -313,7 +313,7 @@ Reference:
 
 ---
 
-## 13. Relationships example
+## 11. Relationships example
 
 Example one-to-many relationship:
 
@@ -349,7 +349,7 @@ Reference:
 
 ---
 
-## 14. Scaffolding from an existing database
+## 12. Scaffolding from an existing database
 
 If the database already exists, EF Core can generate the `DbContext` and entity classes.
 
@@ -376,7 +376,7 @@ Reference:
 
 ---
 
-## 15. Recommended project structure
+## 13. Recommended project structure
 
 A clean layout for medium or large projects is:
 
@@ -398,8 +398,35 @@ Reference:
 - EF Core CLI design-time behavior: <https://learn.microsoft.com/en-us/ef/core/cli/dotnet>
 
 ---
+---
 
-## 16. Common commands cheat sheet
+## Migrations & Db Updates
+
+```bash
+# Add a migration
+dotnet ef migrations add MigrationName
+
+# (create and) Apply migrations to the database
+dotnet ef database update
+
+# Rollback to a previous migration
+dotnet ef database update PreviousMigrationName
+
+# Rollback all migrations (Empty database)
+dotnet ef database update 0
+
+# Remove last(newest) migration
+dotnet ef migrations remove
+
+# Remove all migrations (rollback all & remove)
+dotnet ef database update 0
+dotnet ef migrations remove
+
+```
+
+---
+---
+## Common commands cheat sheet
 
 ```bash
 # Add provider package
